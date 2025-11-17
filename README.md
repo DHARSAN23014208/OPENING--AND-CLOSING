@@ -6,75 +6,65 @@ To implement Opening and Closing using Python and OpenCV.
 1. Anaconda - Python 3.7
 2. OpenCV
 ## Algorithm:
-### Step1:
-<br>
 
+### Step1:
+Import the necessary packages
 
 ### Step2:
-<br>
+Create the Text using cv2.putText
 
 ### Step3:
-<br>
+Create the structuring element
 
 ### Step4:
-<br>
+Use Opening operation
 
 ### Step5:
-<br>
+Use Closing Operation
 
  
 ## Program:
 
 ``` Python
 # Import the necessary packages
-
-
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
 
 # Create the Text using cv2.putText
-
-
+img = np.zeros((300, 600), dtype='uint8')
+font = cv2.FONT_ITALIC
+cv2.putText(img, "DHARSAN ", (5, 150), font, 3, (255), 5, cv2.LINE_AA)
+cv2.imshow("Original", img)
+cv2.waitKey(0)
 
 # Create the structuring element
-
-
+kernel_open = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+kernel_close = cv2.getStructuringElement(cv2.MORPH_RECT, (11, 11))
 
 # Use Opening operation
-
-
-
+opened = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel_open)
+cv2.imshow("Opening", opened)
+cv2.waitKey(0)
 
 # Use Closing Operation
-
-
-
-
+closed = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel_close)
+cv2.imshow("Closing", closed)
+cv2.waitKey(0)
 
 ```
 ## Output:
 
 ### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<img width="723" height="466" alt="image" src="https://github.com/user-attachments/assets/4314d43f-4ed8-4f52-af73-dfe0faef05b2" />
 
 ### Display the result of Opening
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<img width="723" height="466" alt="image" src="https://github.com/user-attachments/assets/0a35a664-c00b-4e9b-a3c9-5254561fb221" />
+
 
 ### Display the result of Closing
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<img width="302" height="315" alt="image" src="https://github.com/user-attachments/assets/889c6422-b7d7-49c4-82e5-3239bfbad529" />
 
 ## Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
